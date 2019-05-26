@@ -1,35 +1,37 @@
 # Projetolop7
 etapa7
+var vidas=5
+var pontos=0
+var nivel=1
 var vxi=[]
 var vyi=[]
-var qtObjetos=10
-var vidas=3
-var pontos=0
-var dificuldade=1
-var x=50
+var qtdObjetos=10
+var raioO=15
+var raioP=10
+var x=10
 var y=200
-var xi=1385
-var yi=200
 var xd
 var yd
-var raioP=15
-var raioO=20
 var estadoDisparo = false;
+var raioD=3
 function setup() {
-  createCanvas(1400, 500);
-  for(var i=0;i<qtObjetos;i++){
-   vxi[i]=random(200,1500)
-   vyi[i]=random(0,500)
+  createCanvas(400, 400);
+  for(i=0;i<=qtdObjetos;i++){
+  vxi[i]=random(50,400)
+  vyi[i]=random(50,400) 
 }
-
+}
 function draw() {
-  background(150);
-  textSize(19);
+  background(100);
+   textSize(19);
   text('vidas: '+vidas,10,30);
-  text('dificuldade: '+dificuldade,200,30)
-  text('pontos:  '+pontos,400,30)
+  text('nivel: '+nivel,200,30)
+  text('pontos:  '+pontos,300,30)
+  for(i=0;i<=qtdObjetos;i++){
+  ellipse(vxi[i],vyi[i],2*raioO,2*raioO)
+  }
   ellipse(x,y,2*raioP,2*raioP)
-    if ( keyIsDown(RIGHT_ARROW) )
+   if ( keyIsDown(RIGHT_ARROW) )
   {
     x=x+4
   }
@@ -45,7 +47,7 @@ function draw() {
   {
     y=y+4
   }
-   ellipse(xd,yd,5,5)
+    ellipse(xd,yd,1*raioD,1*raioD)
   if ( keyIsDown(CONTROL) && ! estadoDisparo)
   {
     xd=x
@@ -54,32 +56,132 @@ function draw() {
   }
 
 if( estadoDisparo ) {
-  ellipse(xd,yd,20,20)
+  ellipse(xd,yd,1*raioD,1*raioD)
   xd=xd+10;
 }
-  if(xd > 1300)
+  if(xd > 400)
   {
     estadoDisparo=false
   }
-for(var i=0;i<qtObjetos;i++){
-  ellipse(vxi[i],vyi[i],2*raioO,2*raioO)}
-  if(x>50)
+  if(dist(x,y,vxi[1],vyi[1])< raioO + raioP)
   {
-    xi=xi-4
-  }
-  if(dist(x, y, xi, yi)< raioO + raioP) 
-  {
-    x=20
+    x=10
     y=200
-    yi=200
-    xi=1385
+      vidas=vidas-1
+  }
+  if(dist(x,y,vxi[2],vyi[2])< raioO + raioP)
+  {
+    x=10
+    y=200
+      vidas=vidas-1
+  }
+   if(dist(x,y,vxi[3],vyi[3])< raioO + raioP)
+  {
+    x=10
+    y=200
     vidas=vidas-1
   }
-  if(dist(xd,yd,xi,yi)< raioO)
+    if(dist(x,y,vxi[4],vyi[4])< raioO + raioP)
   {
-    pontos=pontos+1
-    raioO=0
-    xi=0
-    yi=0
+    x=10
+    y=200
+      vidas=vidas-1
   }
+     if(dist(x,y,vxi[5],vyi[5])< raioO + raioP)
+  {
+    x=10
+    y=200
+      vidas=vidas-1
+  }
+       if(dist(x,y,vxi[6],vyi[6])< raioO + raioP)
+  {
+    x=10
+    y=200
+      vidas=vidas-1
+  }
+       if(dist(x,y,vxi[7],vyi[7])< raioO + raioP)
+  {
+    x=10
+    y=200
+      vidas=vidas-1
+  }
+       if(dist(x,y,vxi[8],vyi[8])< raioO + raioP)
+  {
+    x=10
+    y=200
+      vidas=vidas-1
+  }
+      if(dist(x,y,vxi[9],vyi[9])< raioO + raioP)
+  {
+    x=10
+    y=200
+      vidas=vidas-1
+  }
+     if(dist(x,y,vxi[10],vyi[10])< raioO + raioP)
+  {
+    x=10
+    y=200
+      vidas=vidas-1
+  }
+    if(dist(xd,yd,vxi[1],vyi[1])< raioO + raioD)
+  {
+    vxi[1]=0
+       vyi[1]=0
+      pontos=pontos+1
+  }
+  if(dist(xd,yd,vxi[2],vyi[2])< raioO + raioD)
+  {
+   vxi[2]=0
+       vyi[2]=0
+      pontos=pontos+1
+  }
+   if(dist(xd,yd,vxi[3],vyi[3])< raioO + raioD)
+  {
+   vxi[3]=0
+       vyi[3]=0
+      pontos=pontos+1
+  }
+    if(dist(xd,yd,vxi[4],vyi[4])< raioO + raioD)
+  {
+    vxi[4]=0
+       vyi[4]=0
+      pontos=pontos+1
+  }
+     if(dist(xd,yd,vxi[5],vyi[5])< raioO + raioD)
+  {
+   vxi[5]=0
+       vyi[5]=0
+      pontos=pontos+1
+  }
+       if(dist(xd,yd,vxi[6],vyi[6])< raioO + raioD)
+  {
+   vxi[6]=0
+       vyi[6]=0
+      pontos=pontos+1
+  }
+       if(dist(xd,yd,vxi[7],vyi[7])< raioO + raioD)
+  {
+   vxi[7]=0
+       vyi[7]=0
+      pontos=pontos+1
+  }
+       if(dist(xd,yd,vxi[8],vyi[8])< raioO + raioD)
+  {
+    vxi[8]=0
+       vyi[8]=0
+      pontos=pontos+1
+  }
+      if(dist(xd,yd,vxi[9],vyi[9])< raioO + raioD)
+  {
+  vxi[9]=0
+       vyi[9]=0
+      pontos=pontos+1
+  }
+     if(dist(xd,yd,vxi[10],vyi[10])< raioO + raioD)
+  {
+       vxi[10]=0
+       vyi[10]=0
+      pontos=pontos+1
+  }
+   
 }
